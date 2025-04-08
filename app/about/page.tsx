@@ -115,7 +115,7 @@ const AboutPage = () => {
             Our Story
           </h1>
           <p className="text-lg sm:text-xl text-stone-marble/90 max-w-3xl mx-auto">
-            Crafting excellence in natural stone since 2003, transforming spaces
+            Crafting excellence in natural stone since 2015, transforming spaces
             with unparalleled artistry and innovation.
           </p>
         </div>
@@ -191,7 +191,7 @@ const AboutPage = () => {
                 src="/team/founder.jpeg"
                 alt="Mamadou Ndiaye - Founder"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -201,7 +201,7 @@ const AboutPage = () => {
               </h2>
               <div className="elegant-divider w-1/3 mb-8" />
               <p className="text-lg text-stone-charcoal/80 mb-6 leading-relaxed">
-                Mamadou Ndiaye&apos;s journey in natural stone began over two
+                Mamadou Ndiaye&apos;s journey in natural stone began over a
                 decades ago. His passion for craftsmanship and innovative design
                 has transformed InnovaStone into a global leader in luxury stone
                 solutions. With a commitment to excellence and sustainability,
@@ -210,7 +210,7 @@ const AboutPage = () => {
               </p>
               <p className="text-lg text-stone-charcoal/80 mb-8 leading-relaxed">
                 Under his leadership, InnovaStone has completed prestigious
-                projects across 30+ countries, earning recognition for our
+                projects across 15+ countries, earning recognition for our
                 innovative approach and uncompromising quality standards.
               </p>
               <Link href='https://www.linkedin.com/in/mamadou-ndiaye-99b37aa3' target="_blank">
@@ -243,7 +243,7 @@ const AboutPage = () => {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="160px"
                     />
                   </div>

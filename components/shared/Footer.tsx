@@ -8,7 +8,6 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Diamond,
 } from "lucide-react";
 import Link from "next/link";
 import { navigation } from "@/lib/utils/navigation";
@@ -81,9 +80,13 @@ const Footer: FunctionComponent<FooterProps> = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-stone-gold shrink-0 mt-1" />
                 <p className="text-stone-marble/70">
-                  Bağbaşı Mahallesi
-                  <br /> 1092 Sokak No.2
-                  <br /> Pamukkale, Denizli, Turkey
+                  Sümer Mahallesi
+                  <br />
+                  2482/2 Sokak Sky City B Blok
+                  <br />
+                  İş Merkezi No: 1 İç Kapı No:63
+                  <br />
+                  Merkezefendi, Denizli, Turkey
                 </p>
               </li>
               <li>

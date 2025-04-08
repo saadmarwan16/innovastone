@@ -93,7 +93,7 @@ const ContactPage = () => {
     {
       icon: <MapPin className="h-6 w-6 text-stone-gold" />,
       title: 'Visit Us',
-      content: 'Bağbaşı Mahallesi 1092 Sokak No.2 Pamukkale, Denizli, Turkey',
+      content: 'Sümer Mahallesi 2482/2 Sokak Sky City B Blok İş Merkezi No: 1 İç Kapı No:63, Merkezefendi, Denizli, Turkey',
       link: 'https://maps.google.com',
       linkText: 'Get Directions',
     },
