@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 interface IntroductionProps {
     
@@ -113,10 +114,10 @@ const Introduction: FunctionComponent<IntroductionProps> = () => {
                   className="w-full bg-stone-gold hover:bg-stone-gold/90 text-white transition-all duration-500 hover:-translate-y-1 text-base md:text-lg h-12 md:h-14"
                   asChild
                 >
-                  <a href="/about">
+                  <Link href="/about">
                     Learn Our Story
                     <ChevronRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
