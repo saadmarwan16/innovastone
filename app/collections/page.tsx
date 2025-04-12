@@ -492,4 +492,6 @@ const CollectionsPage = () => {
   );
 };
 
+export const runtime = "edge";
+
 export default CollectionsPage;

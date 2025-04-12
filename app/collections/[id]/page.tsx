@@ -1,5 +1,6 @@
 import { collections } from "@/lib/data/collections";
 import { CollectionDetails } from "./CollectionDetails";
+import { FunctionComponent } from "react";
 
 interface CollectionDetailsPageProps {
   params: {
@@ -7,9 +8,9 @@ interface CollectionDetailsPageProps {
   };
 }
 
-export default function CollectionDetailsPage({
+const CollectionDetailsPage: FunctionComponent<CollectionDetailsPageProps> = ({
   params,
-}: CollectionDetailsPageProps) {
+}) => {
   // Find the current collection
   const currentCollection =
     collections.find((c) => c.id.toString() === params.id) || collections[0];
@@ -32,4 +33,8 @@ export default function CollectionDetailsPage({
       galleryImages={galleryImages}
     />
   );
-}
+};
+
+export const runtime = "edge";
+
+export default CollectionDetailsPage;

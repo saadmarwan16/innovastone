@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Introduction from "./components/Introduction";
 import FeaturedProjects from "./components/FeaturedProjects";
@@ -9,7 +9,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQs from "./components/FAQs";
 import QuickStats from "./components/QuickStats";
 
-export default function Home() {
+const Home: FunctionComponent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero isVisible={isVisible} />
         <QuickStats />
-        <Introduction />  
+        <Introduction />
         <FeaturedProjects />
         <WhyChooseUs />
         {/* <Testimonials /> */}
@@ -29,4 +29,8 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export const runtime = "edge";
+
+export default Home;

@@ -67,4 +67,6 @@ const ConsultationPage = () => {
   );
 };
 
+export const runtime = "edge";
+
 export default ConsultationPage;

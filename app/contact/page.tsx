@@ -317,4 +317,6 @@ const ContactPage = () => {
   );
 };
 
+export const runtime = "edge";
+
 export default ContactPage;
