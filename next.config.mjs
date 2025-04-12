@@ -12,4 +12,4 @@ if (process.env.NODE_ENV === "development") {
   await setupDevPlatform();
 }
 
-module.exports = nextConfig;
+export default nextConfig;
