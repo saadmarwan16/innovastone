@@ -46,7 +46,7 @@ const ConsultationPage = () => {
             <div className="decorative-frame glass-effect rounded-2xl p-8 md:p-12">
               <div className="min-h-[700px]">
                 <InlineWidget
-                  url="https://calendly.com/saadmarwan16/30min"
+                  url="https://calendly.com/mamadoundiaye84/30min"
                   styles={{
                     height: '700px',
                     width: '100%',

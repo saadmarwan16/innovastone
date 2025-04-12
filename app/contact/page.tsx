@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,9 +12,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Facebook,
   Instagram,
@@ -23,16 +23,16 @@ import {
   MapPin,
   Phone,
   Loader2,
-} from 'lucide-react';
-import Link from 'next/link';
-import emailjs from '@emailjs/browser';
-import { useToast } from '@/hooks/use-toast';
+} from "lucide-react";
+import Link from "next/link";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  phone: z.string().min(10, 'Phone number must be at least 10 digits'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 const ContactPage = () => {
@@ -43,34 +43,30 @@ const ContactPage = () => {
   useEffect(() => {
     setIsVisible(true);
     // Initialize EmailJS with your public key
-    emailjs.init("RG7wIO9vN3-TnZXGS");
+    emailjs.init("op7FPgLH2r6wp6yO3");
   }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      await emailjs.send(
-        "service_8r4ts8l",
-        "template_6iq1tz1",
-        {
-          from_name: values.name,
-          from_email: values.email,
-          from_phone: values.phone,
-          message: values.message,
-          to_email: "info@innovastone.co",
-          reply_to: values.email,
-        }
-      );
+      await emailjs.send("service_kcxjupq", "template_itumg78", {
+        from_name: values.name,
+        from_email: values.email,
+        from_phone: values.phone,
+        message: values.message,
+        to_email: "info@innovastone.co",
+        reply_to: values.email,
+      });
 
       toast({
         title: "Message Sent!",
@@ -92,42 +88,43 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6 text-stone-gold" />,
-      title: 'Visit Us',
-      content: 'Sümer Mahallesi 2482/2 Sokak Sky City B Blok İş Merkezi No: 1 İç Kapı No:63, Merkezefendi, Denizli, Turkey',
-      link: 'https://maps.google.com',
-      linkText: 'Get Directions',
+      title: "Visit Us",
+      content:
+        "Sümer Mahallesi 2482/2 Sokak Sky City B Blok İş Merkezi No: 1 İç Kapı No:63, Merkezefendi, Denizli, Turkey",
+      link: "https://www.google.com/maps/place/SKYCITY+B+BLOK+%C4%B0%C5%9E+MERKEZ%C4%B0+DEN%C4%B0ZL%C4%B0/@37.7910566,29.0899877,17z/data=!3m1!4b1!4m6!3m5!1s0x14c73fc9183db849:0x6bdc6fa55fdc72b0!8m2!3d37.7910566!4d29.0899877!16s%2Fg%2F11hz_v50hf?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoASAFQAw%3D%3D",
+      linkText: "Get Directions",
     },
     {
       icon: <Phone className="h-6 w-6 text-stone-gold" />,
-      title: 'Call Us',
-      content: '+90 531 762 84 48',
-      link: 'tel:+905317628448',
-      linkText: 'Call Now',
+      title: "Call Us",
+      content: "+90 531 762 84 48",
+      link: "tel:+905317628448",
+      linkText: "Call Now",
     },
     {
       icon: <Mail className="h-6 w-6 text-stone-gold" />,
-      title: 'Email Us',
-      content: 'info@innovastone.co',
-      link: 'mailto:info@innovastone.co',
-      linkText: 'Send Email',
+      title: "Email Us",
+      content: "info@innovastone.co",
+      link: "mailto:info@innovastone.co",
+      linkText: "Send Email",
     },
   ];
 
   const socialLinks = [
     {
       icon: <Facebook className="h-5 w-5" />,
-      href: 'https://facebook.com',
-      label: 'Facebook',
+      href: "https://facebook.com",
+      label: "Facebook",
     },
     {
       icon: <Instagram className="h-5 w-5" />,
-      href: 'https://instagram.com',
-      label: 'Instagram',
+      href: "https://instagram.com",
+      label: "Instagram",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
-      href: 'https://linkedin.com',
-      label: 'LinkedIn',
+      href: "https://linkedin.com",
+      label: "LinkedIn",
     },
   ];
 
@@ -146,7 +143,7 @@ const ContactPage = () => {
         </div>
         <div
           className={`relative container mx-auto px-4 text-center transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-marble mb-6 hero-text-shadow">
@@ -181,7 +178,7 @@ const ContactPage = () => {
                 <Link
                   href={info.link}
                   className="text-stone-gold hover:text-stone-gold/80 font-medium transition-colors duration-300"
-                  target={info.link.startsWith('http') ? '_blank' : undefined}
+                  target={info.link.startsWith("http") ? "_blank" : undefined}
                 >
                   {info.linkText}
                 </Link>
@@ -269,7 +266,7 @@ const ContactPage = () => {
                         Sending...
                       </>
                     ) : (
-                      'Send Message'
+                      "Send Message"
                     )}
                   </Button>
                 </form>
@@ -280,7 +277,7 @@ const ContactPage = () => {
             <div className="space-y-8">
               <div className="glass-effect rounded-2xl overflow-hidden h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.14245968236!2d29.029873600000002!3d37.783390700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73fb1d3a6a187%3A0x7c29c6941d4a5ad7!2sDenizli%2C%20Turkey!5e0!3m2!1sen!2sus!4v1709004000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.9566108044137!2d29.089987699999995!3d37.7910566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73fc9183db849%3A0x6bdc6fa55fdc72b0!2zU0tZQ0lUWSBCIEJMT0sgxLDFniBNRVJLRVrEsCBERU7EsFpMxLA!5e0!3m2!1sen!2str!4v1744492542576!5m2!1sen!2str"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
