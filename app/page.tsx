@@ -1,36 +1,26 @@
-"use client";
+import { Metadata } from "next";
+import HomeClient from "./components/HomeClient";
 
-import { FunctionComponent, useEffect, useState } from "react";
-import Hero from "./components/Hero";
-import Introduction from "./components/Introduction";
-import FeaturedProjects from "./components/FeaturedProjects";
-import WhyChooseUs from "./components/WhyChooseUs";
-// import Testimonials from "./components/Testimonials";
-import FAQs from "./components/FAQs";
-import QuickStats from "./components/QuickStats";
-
-const Home: FunctionComponent = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  return (
-    <>
-      <main className="min-h-screen">
-        <Hero isVisible={isVisible} />
-        <QuickStats />
-        <Introduction />
-        <FeaturedProjects />
-        <WhyChooseUs />
-        {/* <Testimonials /> */}
-        <FAQs />
-      </main>
-    </>
-  );
+export const metadata: Metadata = {
+  title: "InnovaStone Design | Elevating Spaces with Timeless Elegance",
+  description: "Crafting luxury through natural stone mastery, transforming spaces with unparalleled artistry and timeless materials. Discover our collection of premium natural stone solutions.",
+  keywords: "natural stone, marble, luxury design, timeless elegance, stone mastery, premium materials, innovastone, design, doğaltaş",
+  openGraph: {
+    title: "InnovaStone Design | Elevating Spaces with Timeless Elegance",
+    description: "Crafting luxury through natural stone mastery, transforming spaces with unparalleled artistry and timeless materials.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "InnovaStone Design - Luxury Natural Stone Solutions",
+      },
+    ],
+  },
 };
 
 export const runtime = "edge";
 
-export default Home;
+export default function Home() {
+  return <HomeClient />;
+}
