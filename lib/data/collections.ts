@@ -761,7 +761,7 @@ export const collections = [
     id: 17,
     name: "Pillow",
     subtitle: "Soft Comfort Meets Premium Craft",
-    category: "Textiles",
+    category: "Textile",
     description:
       "Our luxury pillows are crafted with soft, breathable fabrics and filled for optimum comfort and support. An essential for restful, stylish interiors.",
     heroImage:
@@ -854,7 +854,7 @@ export const collections = [
     id: 19,
     name: "Rugs",
     subtitle: "Ground Your Space with Style",
-    category: "Textiles",
+    category: "Textile",
     description:
       "Our premium rugs feature exquisite patterns and textures, adding warmth and character to any room. Choose from neutral tones or bold statements.",
     heroImage:
@@ -1087,7 +1087,7 @@ export const collections = [
     id: 24,
     name: "Towels",
     subtitle: "Softness You Can Feel",
-    category: "Textiles",
+    category: "Textile",
     description:
       "Our luxurious towels are crafted with high-absorbency cotton for ultimate comfort and softness. A perfect blend of practicality and indulgence.",
     heroImage:

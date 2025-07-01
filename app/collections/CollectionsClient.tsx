@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Filter,
   SlidersHorizontal,
-  X,
   Search,
   ChevronRight,
   Loader2,
@@ -52,7 +51,7 @@ const filters = {
     "Exteriors",
     "Bathrooms",
     "Feature Walls",
-    "Bedrooms"
+    "Bedrooms",
   ],
   sort: [
     "Popularity",

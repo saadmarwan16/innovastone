@@ -32,7 +32,7 @@ const AboutClient = () => {
     {
       name: "Kıymet Koçlar",
       role: "Accountant",
-      image: "/team/accountant.jpeg",
+      image: "/team/accountant.png",
       bio: "A meticulous and reliable financial expert who ensures accuracy, compliance, and has strategic insight",
     },
   ];
