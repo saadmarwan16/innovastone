@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, FunctionComponent } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Filter,
@@ -22,6 +22,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { collections } from "@/lib/data/collections";
+import Hero from "./components/Hero";
+import CTA from "./components/CTA";
+import { TCollectionsPageData } from "./lib/types";
+
+interface CollectionsClientProps {
+  data: TCollectionsPageData;
+}
 
 interface Filters {
   colors: string[];
@@ -106,8 +113,9 @@ const FilterSection = ({
   </div>
 );
 
-const CollectionsClient = () => {
-  const [isVisible, setIsVisible] = useState(false);
+const CollectionsClient: FunctionComponent<CollectionsClientProps> = ({
+  data,
+}) => {
   const [selectedFilters, setSelectedFilters] = useState<Filters>({
     colors: [],
     finishes: [],
@@ -119,10 +127,6 @@ const CollectionsClient = () => {
   const [visibleCollections, setVisibleCollections] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const handleFilterChange = (category: string, value: string) => {
     const updateFilters = (prev: Filters): Filters => {
@@ -259,42 +263,7 @@ const CollectionsClient = () => {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:h-[70vh] flex items-center justify-center py-20 sm:py-24 md:py-32">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070')",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-charcoal/70 via-stone-charcoal/60 to-transparent" />
-        </div>
-        <div
-          className={`relative container mx-auto px-4 text-center transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-marble mb-6 hero-text-shadow">
-            Stone Collections
-          </h1>
-          <p className="text-lg sm:text-xl text-stone-marble/90 max-w-3xl mx-auto mb-8">
-            Discover the Finest Stone Collections—Timeless Elegance, Unmatched
-            Quality
-          </p>
-          <Button
-            size="lg"
-            className="bg-stone-gold hover:bg-stone-gold/90 text-white transition-all duration-500 hover:scale-105"
-            onClick={() => {
-              const collectionsSection = document.getElementById("collections");
-              collectionsSection?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Explore Our Collections
-            <ChevronRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
-      </section>
+      <Hero data={data.hero} />
 
       {/* Collections Section */}
       <section
@@ -438,38 +407,7 @@ const CollectionsClient = () => {
             </div>
           )}
 
-          {/* Consultation CTA */}
-          <div className="mt-24 relative">
-            <div className="absolute inset-0 bg-stone-charcoal rounded-2xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070"
-                alt="Luxury Stone Design"
-                fill
-                className="object-cover opacity-20"
-                sizes="100vw"
-              />
-            </div>
-            <div className="relative glass-effect rounded-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-charcoal mb-4">
-                Not sure which stone suits your project?
-              </h2>
-              <p className="text-stone-charcoal/70 mb-8 max-w-2xl mx-auto">
-                Our expert consultants are here to help you choose the perfect
-                stone for your space. Let&apos;s create something extraordinary
-                together.
-              </p>
-              <Button
-                size="lg"
-                className="bg-stone-gold hover:bg-stone-gold/90 text-white transition-all duration-500 hover:scale-105"
-                asChild
-              >
-                <Link href="/consultation">
-                  Request a Consultation
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </div>
+          <CTA data={data.cta} />
         </div>
       </section>
     </main>

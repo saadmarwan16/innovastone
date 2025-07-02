@@ -1,13 +1,17 @@
 import { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import { FetchContactPage } from "./lib/FetchContactPage";
 
 export const metadata: Metadata = {
   title: "Contact Us | InnovaStone Design",
-  description: "Get in touch with InnovaStone Design. Contact our team for inquiries about our premium natural stone solutions, consultations, or partnership opportunities.",
-  keywords: "contact innovastone, stone company contact, natural stone inquiry, stone consultation, luxury stone contact, natural stone, innovastone, design, doğaltaş",
+  description:
+    "Get in touch with InnovaStone Design. Contact our team for inquiries about our premium natural stone solutions, consultations, or partnership opportunities.",
+  keywords:
+    "contact innovastone, stone company contact, natural stone inquiry, stone consultation, luxury stone contact, natural stone, innovastone, design, doğaltaş",
   openGraph: {
     title: "Contact Us | InnovaStone Design",
-    description: "Get in touch with InnovaStone Design. Let's discuss your vision and create something extraordinary together.",
+    description:
+      "Get in touch with InnovaStone Design. Let's discuss your vision and create something extraordinary together.",
     images: [
       {
         url: "/logo.png",
@@ -21,6 +25,10 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-export default function ContactPage() {
-  return <ContactClient />;
-}
+const ContactPage = async () => {
+  const contact = await FetchContactPage.execute();
+
+  return <ContactClient data={contact.data} />;
+};
+
+export default ContactPage;

@@ -1,13 +1,17 @@
 import { Metadata } from "next";
 import CollectionsClient from "./CollectionsClient";
+import { FetchCollectionsPage } from "./lib/FetchCollectionsPage";
 
 export const metadata: Metadata = {
   title: "Stone Collections | InnovaStone Design",
-  description: "Explore our curated collection of premium natural stones. Filter by color, finish, and usage to find the perfect stone for your luxury project.",
-  keywords: "natural stone collections, marble collection, travertine, stone filters, luxury stone, stone catalog, premium stone, natural stone, innovastone, design, doğaltaş",
+  description:
+    "Explore our curated collection of premium natural stones. Filter by color, finish, and usage to find the perfect stone for your luxury project.",
+  keywords:
+    "natural stone collections, marble collection, travertine, stone filters, luxury stone, stone catalog, premium stone, natural stone, innovastone, design, doğaltaş",
   openGraph: {
     title: "Stone Collections | InnovaStone Design",
-    description: "Explore our curated collection of premium natural stones for your luxury project.",
+    description:
+      "Explore our curated collection of premium natural stones for your luxury project.",
     images: [
       {
         url: "/logo.png",
@@ -21,6 +25,10 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-export default function CollectionsPage() {
-  return <CollectionsClient />;
-}
+const CollectionsPage = async () => {
+  const collections = await FetchCollectionsPage.execute();
+
+  return <CollectionsClient data={collections.data} />;
+};
+
+export default CollectionsPage;
