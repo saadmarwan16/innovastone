@@ -1,13 +1,17 @@
 import { Metadata } from "next";
 import ConsultationClient from "./ConsultationClient";
+import { FetchConsultationPage } from "./lib/FetchConsultationPage";
 
 export const metadata: Metadata = {
   title: "Schedule a Consultation | InnovaStone Design",
-  description: "Let's discuss your vision and create something extraordinary together. Book a consultation with our natural stone experts to bring your project to life.",
-  keywords: "stone consultation, design consultation, natural stone experts, book appointment, innovastone consultation, natural stone, innovastone, design, doğaltaş",
+  description:
+    "Let's discuss your vision and create something extraordinary together. Book a consultation with our natural stone experts to bring your project to life.",
+  keywords:
+    "stone consultation, design consultation, natural stone experts, book appointment, innovastone consultation, natural stone, innovastone, design, doğaltaş",
   openGraph: {
     title: "Schedule a Consultation | InnovaStone Design",
-    description: "Let's discuss your vision and create something extraordinary together with premium natural stone.",
+    description:
+      "Let's discuss your vision and create something extraordinary together with premium natural stone.",
     images: [
       {
         url: "/logo.png",
@@ -21,6 +25,10 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-export default function ConsultationPage() {
-  return <ConsultationClient />;
-}
+const ConsultationPage = async () => {
+  const consultation = await FetchConsultationPage.execute();
+
+  return <ConsultationClient data={consultation.data} />;
+};
+
+export default ConsultationPage;

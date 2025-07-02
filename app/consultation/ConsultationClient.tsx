@@ -1,9 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { InlineWidget } from 'react-calendly';
+import { useState, useEffect, FunctionComponent } from "react";
+import { InlineWidget } from "react-calendly";
+import { TConsultationPageData } from "./lib/types";
+import { ConstructImageLink } from "@/utils/ConstrucImageLink";
 
-const ConsultationClient = () => {
+interface ConsultationClientProps {
+  data: TConsultationPageData;
+}
+
+const ConsultationClient: FunctionComponent<ConsultationClientProps> = ({
+  data,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -17,23 +25,23 @@ const ConsultationClient = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070')",
+            backgroundImage: `url('${ConstructImageLink.execute(
+              data.hero.image.url
+            )}')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-stone-charcoal/70 via-stone-charcoal/60 to-transparent" />
         </div>
         <div
           className={`relative container mx-auto px-4 text-center transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-marble mb-6 hero-text-shadow">
-            Schedule a Consultation
+            {data.hero.title}
           </h1>
           <p className="text-lg sm:text-xl text-stone-marble/90 max-w-3xl mx-auto">
-            Let&apos;s discuss your vision and create something extraordinary
-            together
+            {data.hero.description}
           </p>
         </div>
       </section>
@@ -46,16 +54,16 @@ const ConsultationClient = () => {
             <div className="decorative-frame glass-effect rounded-2xl p-8 md:p-12">
               <div className="min-h-[700px]">
                 <InlineWidget
-                  url="https://calendly.com/mamadoundiaye84/30min"
+                  url={data.consultation_link}
                   styles={{
-                    height: '700px',
-                    width: '100%',
+                    height: "700px",
+                    width: "100%",
                   }}
                   prefill={{
-                    email: '',
-                    firstName: '',
-                    lastName: '',
-                    name: '',
+                    email: "",
+                    firstName: "",
+                    lastName: "",
+                    name: "",
                   }}
                 />
               </div>

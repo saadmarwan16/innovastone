@@ -1,13 +1,17 @@
 import { Metadata } from "next";
 import AboutClient from "@/app/about/AboutClient";
+import { FetchAboutPage } from "./lib/FetchAboutPage";
 
 export const metadata: Metadata = {
   title: "About InnovaStone Design | Our Story & Values",
-  description: "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation. Learn about our process, values, and team.",
-  keywords: "natural stone, about innovastone, stone craftsmanship, luxury stone, stone process, stone values, stone team, natural stone, innovastone, design, doğaltaş",
+  description:
+    "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation. Learn about our process, values, and team.",
+  keywords:
+    "natural stone, about innovastone, stone craftsmanship, luxury stone, stone process, stone values, stone team, natural stone, innovastone, design, doğaltaş",
   openGraph: {
     title: "About InnovaStone Design | Our Story & Values",
-    description: "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation.",
+    description:
+      "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation.",
     images: [
       {
         url: "/logo.png",
@@ -21,6 +25,10 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-export default function AboutPage() {
-  return <AboutClient />;
-}
+const AboutPage = async () => {
+  const aboutpage = await FetchAboutPage.execute();
+
+  return <AboutClient data={aboutpage.data} />;
+};
+
+export default AboutPage;

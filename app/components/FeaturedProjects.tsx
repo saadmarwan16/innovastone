@@ -4,16 +4,16 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { collections } from "@/lib/data/collections";
+import { THomepageFeaturedCollections } from "../lib/types";
+import { ConstructImageLink } from "@/utils/ConstrucImageLink";
 
-interface FeaturedProjectsProps {}
+interface FeaturedProjectsProps {
+  data: THomepageFeaturedCollections;
+}
 
-const FeaturedProjects: FunctionComponent<FeaturedProjectsProps> = () => {
-  // Get the top 3 collections by popularity
-  const featuredCollections = collections
-    .sort((a, b) => b.popularity - a.popularity)
-    .slice(0, 3);
-
+const FeaturedProjects: FunctionComponent<FeaturedProjectsProps> = ({
+  data,
+}) => {
   return (
     <section className="relative py-24 bg-white overflow-hidden">
       <div className="absolute inset-0 marble-pattern" />
@@ -22,19 +22,19 @@ const FeaturedProjects: FunctionComponent<FeaturedProjectsProps> = () => {
           Featured Collections
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          {featuredCollections.map((collection, index) => (
-            <Link key={index} href={`/collections/${collection.id}`}>
+          {data.map((collection) => (
+            <Link key={collection.id} href={`/collections/${collection.id}`}>
               <Card className="overflow-hidden elegant-card-hover border-0 glass-effect">
                 <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
                   <Image
-                    src={collection.heroImage}
+                    src={ConstructImageLink.execute(collection.hero_image.url)}
                     alt={collection.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     style={{ objectFit: "cover" }}
                   />
-                  {collection.isNew && (
+                  {collection.is_new && (
                     <span className="absolute top-4 right-4 bg-stone-gold text-white px-3 py-1 rounded-full text-sm font-medium">
                       New
                     </span>
@@ -46,16 +46,16 @@ const FeaturedProjects: FunctionComponent<FeaturedProjectsProps> = () => {
                       {collection.name}
                     </h3>
                     <span className="text-sm px-3 py-1 rounded-full bg-stone-gold/10 text-stone-gold">
-                      {collection.category}
+                      {collection.category.value}
                     </span>
                   </div>
                   <p className="text-stone-charcoal/70 mb-4">
                     {collection.subtitle}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {collection.features.slice(0, 2).map((feature, idx) => (
+                    {collection.features.slice(0, 2).map((feature) => (
                       <span
-                        key={idx}
+                        key={feature.id}
                         className="text-xs px-2 py-1 rounded-full bg-stone-charcoal/5 text-stone-charcoal/70"
                       >
                         {feature.title}
