@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import CollectionsClient from "./CollectionsClient";
 import { FetchCollectionsPage } from "./lib/FetchCollectionsPage";
+import { CollectionsParams } from "./types/params";
 
 export const metadata: Metadata = {
   title: "Stone Collections | InnovaStone Design",
@@ -25,10 +26,14 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-const CollectionsPage = async () => {
+interface CollectionsPageProps {
+  searchParams: CollectionsParams;
+}
+
+const CollectionsPage = async ({ searchParams }: CollectionsPageProps) => {
   const collections = await FetchCollectionsPage.execute();
 
-  return <CollectionsClient data={collections.data} />;
+  return <CollectionsClient data={collections.data} params={searchParams} />;
 };
 
 export default CollectionsPage;
