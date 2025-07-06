@@ -2,6 +2,7 @@ import { collections } from "@/lib/data/collections";
 import { CollectionDetails } from "./CollectionDetails";
 import { FunctionComponent } from "react";
 import { Metadata } from "next";
+import { FetchCollectionsDetailsPage } from "./lib/FetchCollectionDetailsPage";
 
 interface CollectionDetailsPageProps {
   params: {
@@ -9,14 +10,23 @@ interface CollectionDetailsPageProps {
   };
 }
 
-export async function generateMetadata({ params }: CollectionDetailsPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: CollectionDetailsPageProps): Promise<Metadata> {
   // Find the current collection
-  const currentCollection = collections.find((c) => c.id.toString() === params.id) || collections[0];
-  
+  const currentCollection =
+    collections.find((c) => c.id.toString() === params.id) || collections[0];
+
   return {
     title: `${currentCollection.name} | InnovaStone Design`,
     description: currentCollection.description,
-    keywords: `${currentCollection.name}, ${currentCollection.category}, ${currentCollection.colors.join(', ')}, ${currentCollection.finishes.join(', ')}, ${currentCollection.uses.join(', ')}, natural stone, innovastone, design, doğaltaş`,
+    keywords: `${currentCollection.name}, ${
+      currentCollection.category
+    }, ${currentCollection.colors.join(
+      ", "
+    )}, ${currentCollection.finishes.join(", ")}, ${currentCollection.uses.join(
+      ", "
+    )}, natural stone, innovastone, design, doğaltaş`,
     openGraph: {
       title: `${currentCollection.name} | ${currentCollection.subtitle}`,
       description: currentCollection.description,
@@ -32,31 +42,12 @@ export async function generateMetadata({ params }: CollectionDetailsPageProps): 
   };
 }
 
-const CollectionDetailsPage: FunctionComponent<CollectionDetailsPageProps> = ({
-  params,
-}) => {
-  // Find the current collection
-  const currentCollection =
-    collections.find((c) => c.id.toString() === params.id) || collections[0];
+const CollectionDetailsPage: FunctionComponent<
+  CollectionDetailsPageProps
+> = async ({ params }) => {
+  const collection = await FetchCollectionsDetailsPage.execute(params.id);
 
-  // Get similar collections using the similar field
-  const similarCollections = currentCollection.similar
-    .map((id) => collections.find((c) => c.id === id))
-    .filter(Boolean);
-
-  // Prepare gallery images from products
-  const galleryImages = currentCollection.images.map((image) => ({
-    src: image,
-    alt: `Image of ${currentCollection.name}`,
-  }));
-
-  return (
-    <CollectionDetails
-      collection={currentCollection}
-      similarCollections={similarCollections}
-      galleryImages={galleryImages}
-    />
-  );
+  return <CollectionDetails collection={collection.data} />;
 };
 
 export const runtime = "edge";

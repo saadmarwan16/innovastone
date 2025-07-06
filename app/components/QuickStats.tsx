@@ -38,7 +38,7 @@ const QuickStats: FunctionComponent<QuickStatsProps> = ({ data }) => {
                 </div>
                 <div>
                   <p className="text-xl sm:text-2xl md:text-4xl font-bold text-stone-marble mb-0.5 sm:mb-1 tracking-tight">
-                    {stat.value}
+                    {stat.value}+
                   </p>
                   <p className="text-xs sm:text-sm md:text-base text-stone-marble/70 font-light tracking-wide">
                     {stat.label}

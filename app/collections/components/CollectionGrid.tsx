@@ -56,7 +56,7 @@ const CollectionGrid: FunctionComponent<CollectionGridProps> = ({ params }) => {
                 {page.map((collection) => (
                   <Link
                     key={collection.id}
-                    href={`/collections/${collection.id}`}
+                    href={`/collections/${collection.documentId}`}
                     className="group"
                   >
                     <div className="glass-effect rounded-2xl overflow-hidden hover-lift">
