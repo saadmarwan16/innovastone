@@ -1,0 +1,193 @@
+{
+  "Shared": {
+    "header": {
+      "navigation": {
+        "home": "Accueil",
+        "collection": "Collection",
+        "about": "À propos",
+        "contact": "Contact"
+      },
+      "scheduleConsultation": "Planifier une consultation"
+    },
+    "footer": {
+      "companyDescription": "Créer une élégance intemporelle grâce à des solutions en pierre naturelle de qualité supérieure. Votre vision, notre expertise.",
+      "quickLinks": "Liens rapides",
+      "contactUs": "Nous contacter",
+      "businessHours": "Heures d'ouverture",
+      "days": {
+        "mondayFriday": "Lundi - Vendredi",
+        "saturday": "Samedi",
+        "sunday": "Dimanche"
+      },
+      "hours": {
+        "weekdays": "9h00 - 18h00",
+        "saturday": "10h00 - 16h00",
+        "closed": "Fermé"
+      },
+      "copyright": "Tous droits réservés."
+    },
+    "loading": {
+      "message": "Veuillez patienter pendant que nous préparons votre contenu."
+    }
+  },
+  "HomePage": {
+    "name": "page d'accueil",
+    "hero": {
+      "discoverCollection": "Découvrir notre collection",
+      "scheduleConsultation": "Planifier une consultation"
+    },
+    "introduction": {
+      "whoWeAre": "Qui nous sommes",
+      "learnOurStory": "Découvrir notre histoire"
+    },
+    "featuredProjects": {
+      "title": "Collections vedettes",
+      "newBadge": "Nouveau",
+      "viewCollection": "Voir la collection",
+      "viewMoreCollections": "Voir plus de collections"
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi nous choisir"
+    },
+    "faqs": {
+      "title": "Foire aux questions"
+    },
+    "testimonials": {
+      "title": "Témoignages clients"
+    }
+  },
+  "CollectionsPage": {
+    "name": "page des collections",
+    "hero": {
+      "exploreCollections": "Explorez nos collections"
+    },
+    "search": {
+      "placeholder": "Rechercher des collections..."
+    },
+    "filters": {
+      "filterSort": "Filtrer et trier",
+      "filterCollections": "Filtrer les collections",
+      "cancel": "Annuler",
+      "applyFilters": "Appliquer les filtres",
+      "categories": "Catégories",
+      "colorPalette": "Palette de couleurs",
+      "bestUses": "Meilleures utilisations",
+      "sortBy": "Trier par"
+    },
+    "collections": {
+      "newBadge": "Nouveau",
+      "viewCollection": "Voir la collection",
+      "viewMoreCollections": "Voir plus de collections",
+      "emptyState": "Aucune collection trouvée",
+      "emptyStateDetails": "Essayez d'ajuster votre recherche ou vos filtres pour trouver ce que vous cherchez.",
+      "error": {
+        "title": "Impossible de charger les collections",
+        "message": "Nous avons des difficultés à charger les collections. Veuillez réessayer.",
+        "retryButton": "Réessayer"
+      }
+    },
+    "cta": {
+      "requestConsultation": "Demander une consultation"
+    }
+  },
+  "CollectionDetailsPage": {
+    "name": "page de détails de la collection",
+    "hero": {
+      "viewGallery": "Voir la galerie"
+    },
+    "features": {
+      "collectionOverview": "Aperçu de la collection"
+    },
+    "gallery": {
+      "title": "Galerie",
+      "clickToView": "Cliquer pour voir"
+    },
+    "similar": {
+      "title": "Collections similaires",
+      "description": "Explorez d'autres collections de pierre naturelle qui complètent votre style",
+      "newBadge": "Nouveau",
+      "viewCollection": "Voir la collection"
+    },
+    "cta": {
+      "title": "Transformez votre espace",
+      "description": "Prêt à apporter l'élégance intemporelle de {name} à votre projet ?",
+      "scheduleConsultation": "Planifier une consultation"
+    },
+    "imageDialog": {
+      "title": "Aperçu de la galerie d'images"
+    }
+  },
+  "AboutPage": {
+    "name": "page à propos",
+    "ourProcess": {
+      "title": "Notre processus"
+    },
+    "values": {
+      "title": "Nos valeurs"
+    },
+    "founder": {
+      "title": "Rencontrez notre fondateur",
+      "readFullStory": "Lire l'histoire complète"
+    },
+    "team": {
+      "title": "Notre équipe"
+    },
+    "cta": {
+      "contactOurTeam": "Contacter notre équipe"
+    }
+  },
+  "ContactPage": {
+    "name": "page de contact",
+    "form": {
+      "title": "Envoyez-nous un message",
+      "fullName": {
+        "label": "Nom complet",
+        "placeholder": "Jean Dupont"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "jean@example.com"
+      },
+      "phone": {
+        "label": "Numéro de téléphone",
+        "placeholder": "+33 1 23 45 67 89"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Parlez-nous de votre projet..."
+      },
+      "sendMessage": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": {
+        "title": "Message envoyé !",
+        "description": "Nous vous répondrons dans les plus brefs délais."
+      },
+      "error": {
+        "title": "Erreur",
+        "description": "Échec de l'envoi du message. Veuillez réessayer plus tard."
+      },
+      "validation": {
+        "nameMinLength": "Le nom doit contenir au moins 2 caractères",
+        "invalidEmail": "Adresse email invalide",
+        "phoneMinLength": "Le numéro de téléphone doit contenir au moins 10 chiffres",
+        "messageMinLength": "Le message doit contenir au moins 10 caractères"
+      }
+    },
+    "connect": {
+      "title": "Connectez-vous avec nous"
+    }
+  },
+  "ConsultationPage": {
+    "name": "page de consultation"
+  },
+  "NotFoundPage": {
+    "notFound": "Page non trouvée",
+    "noResource": "Impossible de trouver la ressource demandée",
+    "home": "Retour à l'accueil"
+  },
+  "ErrorPage": {
+    "title": "Erreur interne du serveur",
+    "message": "Échec du chargement de {name}",
+    "button": "Réessayer"
+  }
+}

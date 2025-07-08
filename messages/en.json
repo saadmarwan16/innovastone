@@ -1,0 +1,193 @@
+{
+  "Shared": {
+    "header": {
+      "navigation": {
+        "home": "Home",
+        "collection": "Collection",
+        "about": "About",
+        "contact": "Contact"
+      },
+      "scheduleConsultation": "Schedule Consultation"
+    },
+    "footer": {
+      "companyDescription": "Crafting timeless elegance through premium natural stone solutions. Your vision, our expertise.",
+      "quickLinks": "Quick Links",
+      "contactUs": "Contact Us",
+      "businessHours": "Business Hours",
+      "days": {
+        "mondayFriday": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "hours": {
+        "weekdays": "9:00 AM - 6:00 PM",
+        "saturday": "10:00 AM - 4:00 PM",
+        "closed": "Closed"
+      },
+      "copyright": "All rights reserved."
+    },
+    "loading": {
+      "message": "Please wait while we prepare your content."
+    }
+  },
+  "HomePage": {
+    "name": "home page",
+    "hero": {
+      "discoverCollection": "Discover Our Collection",
+      "scheduleConsultation": "Schedule Consultation"
+    },
+    "introduction": {
+      "whoWeAre": "Who We Are",
+      "learnOurStory": "Learn Our Story"
+    },
+    "featuredProjects": {
+      "title": "Featured Collections",
+      "newBadge": "New",
+      "viewCollection": "View Collection",
+      "viewMoreCollections": "View More Collections"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions"
+    },
+    "testimonials": {
+      "title": "Client Testimonials"
+    }
+  },
+  "CollectionsPage": {
+    "name": "collections page",
+    "hero": {
+      "exploreCollections": "Explore Our Collections"
+    },
+    "search": {
+      "placeholder": "Search collections..."
+    },
+    "filters": {
+      "filterSort": "Filter & Sort",
+      "filterCollections": "Filter Collections",
+      "cancel": "Cancel",
+      "applyFilters": "Apply Filters",
+      "categories": "Categories",
+      "colorPalette": "Color Palette",
+      "bestUses": "Best Uses",
+      "sortBy": "Sort By"
+    },
+    "collections": {
+      "newBadge": "New",
+      "viewCollection": "View Collection",
+      "viewMoreCollections": "View More Collections",
+      "emptyState": "No collections found",
+      "emptyStateDetails": "Try adjusting your search or filters to find what you're looking for.",
+      "error": {
+        "title": "Unable to load collections",
+        "message": "We're having trouble loading the collections. Please try again.",
+        "retryButton": "Try Again"
+      }
+    },
+    "cta": {
+      "requestConsultation": "Request a Consultation"
+    }
+  },
+  "CollectionDetailsPage": {
+    "name": "collection details page",
+    "hero": {
+      "viewGallery": "View Gallery"
+    },
+    "features": {
+      "collectionOverview": "Collection Overview"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "clickToView": "Click to View"
+    },
+    "similar": {
+      "title": "Similar Collections",
+      "description": "Explore more natural stone collections that complement your style",
+      "newBadge": "New",
+      "viewCollection": "View Collection"
+    },
+    "cta": {
+      "title": "Transform Your Space",
+      "description": "Ready to bring the timeless elegance of {name} to your project?",
+      "scheduleConsultation": "Schedule a Consultation"
+    },
+    "imageDialog": {
+      "title": "Image Gallery Preview"
+    }
+  },
+  "AboutPage": {
+    "name": "about page",
+    "ourProcess": {
+      "title": "Our Process"
+    },
+    "values": {
+      "title": "Our Values"
+    },
+    "founder": {
+      "title": "Meet Our Founder",
+      "readFullStory": "Read Full Story"
+    },
+    "team": {
+      "title": "Our Team"
+    },
+    "cta": {
+      "contactOurTeam": "Contact Our Team"
+    }
+  },
+  "ContactPage": {
+    "name": "contact page",
+    "form": {
+      "title": "Send Us a Message",
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john@example.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your project..."
+      },
+      "sendMessage": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "description": "We'll get back to you as soon as possible."
+      },
+      "error": {
+        "title": "Error",
+        "description": "Failed to send message. Please try again later."
+      },
+      "validation": {
+        "nameMinLength": "Name must be at least 2 characters",
+        "invalidEmail": "Invalid email address",
+        "phoneMinLength": "Phone number must be at least 10 digits",
+        "messageMinLength": "Message must be at least 10 characters"
+      }
+    },
+    "connect": {
+      "title": "Connect With Us"
+    }
+  },
+  "ConsultationPage": {
+    "name": "consultation page"
+  },
+  "NotFoundPage": {
+    "notFound": "Page not Found",
+    "noResource": "Could not find requested resource",
+    "home": "Return Home"
+  },
+  "ErrorPage": {
+    "title": "Internal Server Error",
+    "message": "Failed to fetch the {name}",
+    "button": "Try again"
+  }
+}

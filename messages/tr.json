@@ -1,0 +1,193 @@
+{
+  "Shared": {
+    "header": {
+      "navigation": {
+        "home": "Ana Sayfa",
+        "collection": "Koleksiyon",
+        "about": "Hakkımızda",
+        "contact": "İletişim"
+      },
+      "scheduleConsultation": "Danışmanlık Randevusu"
+    },
+    "footer": {
+      "companyDescription": "Premium doğal taş çözümleri ile zamansız zarafet yaratıyoruz. Vizyonunuz, uzmanlığımız.",
+      "quickLinks": "Hızlı Bağlantılar",
+      "contactUs": "İletişim",
+      "businessHours": "Çalışma Saatleri",
+      "days": {
+        "mondayFriday": "Pazartesi - Cuma",
+        "saturday": "Cumartesi",
+        "sunday": "Pazar"
+      },
+      "hours": {
+        "weekdays": "09:00 - 18:00",
+        "saturday": "10:00 - 16:00",
+        "closed": "Kapalı"
+      },
+      "copyright": "Tüm hakları saklıdır."
+    },
+    "loading": {
+      "message": "İçeriğinizi hazırlarken lütfen bekleyin."
+    }
+  },
+  "HomePage": {
+    "name": "ana sayfa",
+    "hero": {
+      "discoverCollection": "Koleksiyonumuzu Keşfedin",
+      "scheduleConsultation": "Danışmanlık Randevusu"
+    },
+    "introduction": {
+      "whoWeAre": "Kimiz",
+      "learnOurStory": "Hikayemizi Öğrenin"
+    },
+    "featuredProjects": {
+      "title": "Öne Çıkan Koleksiyonlar",
+      "newBadge": "Yeni",
+      "viewCollection": "Koleksiyonu Görüntüle",
+      "viewMoreCollections": "Daha Fazla Koleksiyon"
+    },
+    "whyChooseUs": {
+      "title": "Neden Bizi Seçmelisiniz"
+    },
+    "faqs": {
+      "title": "Sıkça Sorulan Sorular"
+    },
+    "testimonials": {
+      "title": "Müşteri Görüşleri"
+    }
+  },
+  "CollectionsPage": {
+    "name": "koleksiyonlar sayfası",
+    "hero": {
+      "exploreCollections": "Koleksiyonlarımızı Keşfedin"
+    },
+    "search": {
+      "placeholder": "Koleksiyonlarda ara..."
+    },
+    "filters": {
+      "filterSort": "Filtrele ve Sırala",
+      "filterCollections": "Koleksiyonları Filtrele",
+      "cancel": "İptal",
+      "applyFilters": "Filtreleri Uygula",
+      "categories": "Kategoriler",
+      "colorPalette": "Renk Paleti",
+      "bestUses": "En İyi Kullanımlar",
+      "sortBy": "Sırala"
+    },
+    "collections": {
+      "newBadge": "Yeni",
+      "viewCollection": "Koleksiyonu Görüntüle",
+      "viewMoreCollections": "Daha Fazla Koleksiyon",
+      "emptyState": "Koleksiyon bulunamadı",
+      "emptyStateDetails": "Aradığınızı bulmak için arama veya filtrelerinizi ayarlamayı deneyin.",
+      "error": {
+        "title": "Koleksiyonlar yüklenemedi",
+        "message": "Koleksiyonları yüklemede sorun yaşıyoruz. Lütfen tekrar deneyin.",
+        "retryButton": "Tekrar Dene"
+      }
+    },
+    "cta": {
+      "requestConsultation": "Danışmanlık Talep Et"
+    }
+  },
+  "CollectionDetailsPage": {
+    "name": "koleksiyon detayları sayfası",
+    "hero": {
+      "viewGallery": "Galeriyi Görüntüle"
+    },
+    "features": {
+      "collectionOverview": "Koleksiyona Genel Bakış"
+    },
+    "gallery": {
+      "title": "Galeri",
+      "clickToView": "Görüntülemek için tıklayın"
+    },
+    "similar": {
+      "title": "Benzer Koleksiyonlar",
+      "description": "Tarzınızı tamamlayan daha fazla doğal taş koleksiyonunu keşfedin",
+      "newBadge": "Yeni",
+      "viewCollection": "Koleksiyonu Görüntüle"
+    },
+    "cta": {
+      "title": "Mekanınızı Dönüştürün",
+      "description": "{name} koleksiyonunun zamansız zarafetini projenize getirmeye hazır mısınız?",
+      "scheduleConsultation": "Danışmanlık Randevusu"
+    },
+    "imageDialog": {
+      "title": "Resim Galerisi Önizlemesi"
+    }
+  },
+  "AboutPage": {
+    "name": "hakkımızda sayfası",
+    "ourProcess": {
+      "title": "Sürecimiz"
+    },
+    "values": {
+      "title": "Değerlerimiz"
+    },
+    "founder": {
+      "title": "Kurucumuzla Tanışın",
+      "readFullStory": "Tüm Hikayeyi Okuyun"
+    },
+    "team": {
+      "title": "Ekibimiz"
+    },
+    "cta": {
+      "contactOurTeam": "Ekibimizle İletişime Geçin"
+    }
+  },
+  "ContactPage": {
+    "name": "iletişim sayfası",
+    "form": {
+      "title": "Bize Mesaj Gönderin",
+      "fullName": {
+        "label": "Ad Soyad",
+        "placeholder": "Ahmet Yılmaz"
+      },
+      "email": {
+        "label": "E-posta",
+        "placeholder": "ahmet@example.com"
+      },
+      "phone": {
+        "label": "Telefon Numarası",
+        "placeholder": "+90 555 123 45 67"
+      },
+      "message": {
+        "label": "Mesaj",
+        "placeholder": "Projeniz hakkında bize bilgi verin..."
+      },
+      "sendMessage": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": {
+        "title": "Mesaj Gönderildi!",
+        "description": "En kısa sürede size dönüş yapacağız."
+      },
+      "error": {
+        "title": "Hata",
+        "description": "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin."
+      },
+      "validation": {
+        "nameMinLength": "Ad en az 2 karakter olmalıdır",
+        "invalidEmail": "Geçersiz e-posta adresi",
+        "phoneMinLength": "Telefon numarası en az 10 rakam olmalıdır",
+        "messageMinLength": "Mesaj en az 10 karakter olmalıdır"
+      }
+    },
+    "connect": {
+      "title": "Bizimle Bağlantı Kurun"
+    }
+  },
+  "ConsultationPage": {
+    "name": "danışmanlık sayfası"
+  },
+  "NotFoundPage": {
+    "notFound": "Sayfa Bulunamadı",
+    "noResource": "İstenen kaynak bulunamadı",
+    "home": "Ana Sayfaya Dön"
+  },
+  "ErrorPage": {
+    "title": "İç Sunucu Hatası",
+    "message": "{name} yüklenemedi",
+    "button": "Tekrar dene"
+  }
+}
