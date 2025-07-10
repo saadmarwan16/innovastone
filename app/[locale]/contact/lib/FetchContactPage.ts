@@ -41,6 +41,30 @@ export class FetchContactPage {
           connect: {
             fields: ["icon", "href", "label"],
           },
+          seo: {
+            fields: [
+              "metaTitle",
+              "metaDescription",
+              "keywords",
+              "metaRobots",
+              "metaViewport",
+              "canonicalURL",
+              "structuredData",
+            ],
+            populate: {
+              metaImage: {
+                fields: ["url", "alternativeText"],
+              },
+              openGraph: {
+                fields: ["ogTitle", "ogDescription", "ogUrl", "ogType"],
+                populate: {
+                  ogImage: {
+                    fields: ["url", "alternativeText"],
+                  },
+                },
+              },
+            },
+          },
         },
         locale: locale,
       },

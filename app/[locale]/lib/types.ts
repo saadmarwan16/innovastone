@@ -1,3 +1,4 @@
+import { SeoMetadataSchema } from "@/lib/types";
 import { z } from "zod";
 
 export const HomepageSchema = z.object({
@@ -92,6 +93,7 @@ export const HomepageSchema = z.object({
         }),
       })
     ),
+    seo: SeoMetadataSchema,
   }),
 });
 

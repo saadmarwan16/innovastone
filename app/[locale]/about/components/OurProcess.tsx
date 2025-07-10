@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, JSX } from "react";
 import { TAboutPageProcess } from "../lib/types";
 import Image from "next/image";
 import { ConstructImageLink } from "@/utils/ConstrucImageLink";

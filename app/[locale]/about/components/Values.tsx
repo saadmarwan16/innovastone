@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, JSX } from "react";
 import { TAboutPageValues } from "../lib/types";
 import { Award, Leaf, Gem } from "lucide-react";
 import { useTranslations } from "next-intl";

@@ -1,3 +1,4 @@
+import { SeoMetadataSchema } from "@/lib/types";
 import { z } from "zod";
 
 export const CollectionsDetailsPageSchema = z.object({
@@ -43,8 +44,8 @@ export const CollectionsDetailsPageSchema = z.object({
         description: z.string(),
       })
     ),
+    seo: SeoMetadataSchema,
   }),
-  meta: z.object({}),
 });
 
 export type TCollectionsDetailsPage = z.infer<

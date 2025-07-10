@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
+import { FunctionComponent } from "react";
 
-export default function CatchAllPage() {
+const CatchAllPage: FunctionComponent = () => {
   notFound();
-}
+};
+
+export default CatchAllPage;

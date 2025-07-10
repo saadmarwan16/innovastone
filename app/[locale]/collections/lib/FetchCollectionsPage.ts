@@ -57,6 +57,30 @@ export class FetchCollectionsPage {
           sorts: {
             fields: ["value"],
           },
+          seo: {
+            fields: [
+              "metaTitle",
+              "metaDescription",
+              "keywords",
+              "metaRobots",
+              "metaViewport",
+              "canonicalURL",
+              "structuredData",
+            ],
+            populate: {
+              metaImage: {
+                fields: ["url", "alternativeText"],
+              },
+              openGraph: {
+                fields: ["ogTitle", "ogDescription", "ogUrl", "ogType"],
+                populate: {
+                  ogImage: {
+                    fields: ["url", "alternativeText"],
+                  },
+                },
+              },
+            },
+          },
         },
         locale: locale,
       },

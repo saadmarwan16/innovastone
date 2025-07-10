@@ -1,3 +1,4 @@
+import { SeoMetadataSchema } from "@/lib/types";
 import { z } from "zod";
 
 export const CollectionsPageSchema = z.object({
@@ -37,6 +38,7 @@ export const CollectionsPageSchema = z.object({
     sorts: z.array(
       z.object({ id: z.number(), documentId: z.string(), value: z.string() })
     ),
+    seo: SeoMetadataSchema,
   }),
 });
 

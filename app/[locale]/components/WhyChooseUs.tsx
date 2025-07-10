@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, JSX } from "react";
 import { Gem, PenTool as Tool, Users } from "lucide-react";
 import { THomepageWhyChooseUs } from "../lib/types";
 import { useTranslations } from "next-intl";

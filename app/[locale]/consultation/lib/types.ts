@@ -1,4 +1,5 @@
-import { z } from "zod"
+import { SeoMetadataSchema } from "@/lib/types";
+import { z } from "zod";
 
 export const ConsultationPageSchema = z.object({
   data: z.object({
@@ -13,12 +14,12 @@ export const ConsultationPageSchema = z.object({
       image: z.object({
         id: z.number(),
         documentId: z.string(),
-        url: z.string()
-      })
-    })
+        url: z.string(),
+      }),
+    }),
+    seo: SeoMetadataSchema,
   }),
-  meta: z.object({})
-})
-export type TConsultationPage = z.infer<typeof ConsultationPageSchema>
-export type TConsultationPageData = TConsultationPage["data"]
-export type TConsultationPageHero = TConsultationPageData["hero"]
+});
+export type TConsultationPage = z.infer<typeof ConsultationPageSchema>;
+export type TConsultationPageData = TConsultationPage["data"];
+export type TConsultationPageHero = TConsultationPageData["hero"];

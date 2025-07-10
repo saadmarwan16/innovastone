@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, JSX } from "react";
 import { TContactPageConnect } from "../lib/types";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";

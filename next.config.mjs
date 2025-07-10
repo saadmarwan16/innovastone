@@ -7,6 +7,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  experimental: {
+    reactCompiler: true,
+  },
 };
 
 if (process.env.NODE_ENV === "development") {

@@ -4,9 +4,11 @@ import { Playfair_Display, Montserrat } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import { Toaster } from "@/components/ui/toaster";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { FunctionComponent, PropsWithChildren } from "react";
+import { setRequestLocale } from "next-intl/server";
 
 // Initialize the fonts
 const playfair = Playfair_Display({
@@ -23,6 +25,10 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+interface LocaleLayoutProps extends PropsWithChildren {
+  params: { locale: Locale };
+}
+
 export const metadata: Metadata = {
   title: "InnovaStone Design | Luxury Natural Stone Solutions",
   description:
@@ -31,17 +37,20 @@ export const metadata: Metadata = {
     "natural stone, marble, travertine, luxury design, interior design, exterior design, Denizli, Turkey",
 };
 
-export default async function LocaleLayout({
+export const generateStaticParams = () => {
+  return routing.locales.map((locale) => ({ locale }));
+};
+
+const LocaleLayout: FunctionComponent<LocaleLayoutProps> = ({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+}) => {
   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <html
@@ -67,4 +76,6 @@ export default async function LocaleLayout({
       </body>
     </html>
   );
-}
+};
+
+export default LocaleLayout;

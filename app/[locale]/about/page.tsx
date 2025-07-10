@@ -3,37 +3,25 @@ import { Locale } from "next-intl";
 import { FunctionComponent, Suspense } from "react";
 import AboutBoundary from "./AboutBoundary";
 import Loading from "@/components/shared/Loading";
-
-export const metadata: Metadata = {
-  title: "About InnovaStone Design | Our Story & Values",
-  description:
-    "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation. Learn about our process, values, and team.",
-  keywords:
-    "natural stone, about innovastone, stone craftsmanship, luxury stone, stone process, stone values, stone team, natural stone, innovastone, design, doğaltaş",
-  openGraph: {
-    title: "About InnovaStone Design | Our Story & Values",
-    description:
-      "Crafting excellence in natural stone since 2015, transforming spaces with unparalleled artistry and innovation.",
-    images: [
-      {
-        url: "/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "InnovaStone Design - Our Story",
-      },
-    ],
-  },
-};
-
-export const runtime = "edge";
+import { FetchAboutPage } from "./lib/FetchAboutPage";
+import { ConvertJsonToMetadata } from "@/lib/ConvertJsonToMetadata";
 
 interface AboutPageProps {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }
 
-const AboutPage: FunctionComponent<AboutPageProps> = ({
-  params: { locale },
-}) => {
+export const generateMetadata = async ({
+  params,
+}: AboutPageProps): Promise<Metadata> => {
+  const { locale } = await params;
+  const aboutPage = await FetchAboutPage.execute(locale);
+
+  return ConvertJsonToMetadata.execute(aboutPage.data.seo);
+};
+
+const AboutPage: FunctionComponent<AboutPageProps> = async ({ params }) => {
+  const { locale } = await params;
+
   return (
     <Suspense fallback={<Loading />}>
       <AboutBoundary locale={locale} />

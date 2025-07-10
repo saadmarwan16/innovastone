@@ -1,3 +1,4 @@
+import { SeoMetadataSchema } from "@/lib/types";
 import { z } from "zod";
 
 export const ContactPageSchema = z.object({
@@ -34,6 +35,7 @@ export const ContactPageSchema = z.object({
         label: z.string(),
       })
     ),
+    seo: SeoMetadataSchema,
   }),
 });
 

@@ -1,62 +1,50 @@
-import { collections } from "@/lib/data/collections";
-import { CollectionDetails } from "./CollectionDetails";
 import { FunctionComponent, Suspense } from "react";
 import { Metadata } from "next";
-import { FetchCollectionsDetailsPage } from "./lib/FetchCollectionDetailsPage";
 import { Locale } from "next-intl";
 import Loading from "@/components/shared/Loading";
+import { FetchCollections } from "../lib/FetchCollections";
+import CollectionDetailsBoundary from "./CollectionDetailsBoundary";
+import { FetchCollectionsDetailsPage } from "./lib/FetchCollectionDetailsPage";
+import { ConvertJsonToMetadata } from "@/lib/ConvertJsonToMetadata";
 
 interface CollectionDetailsPageProps {
-  params: {
+  params: Promise<{
     id: string;
     locale: Locale;
-  };
+  }>;
 }
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params,
-}: CollectionDetailsPageProps): Promise<Metadata> {
-  // Find the current collection
-  const currentCollection =
-    collections.find((c) => c.id.toString() === params.id) || collections[0];
+}: CollectionDetailsPageProps): Promise<Metadata> => {
+  const { id, locale } = await params;
+  const collection = await FetchCollectionsDetailsPage.execute(id, locale);
 
-  return {
-    title: `${currentCollection.name} | InnovaStone Design`,
-    description: currentCollection.description,
-    keywords: `${currentCollection.name}, ${
-      currentCollection.category
-    }, ${currentCollection.colors.join(
-      ", "
-    )}, ${currentCollection.finishes.join(", ")}, ${currentCollection.uses.join(
-      ", "
-    )}, natural stone, innovastone, design, doğaltaş`,
-    openGraph: {
-      title: `${currentCollection.name} | ${currentCollection.subtitle}`,
-      description: currentCollection.description,
-      images: [
-        {
-          url: currentCollection.heroImage,
-          width: 1200,
-          height: 630,
-          alt: `InnovaStone Design - ${currentCollection.name}`,
-        },
-      ],
-    },
-  };
-}
+  return ConvertJsonToMetadata.execute(collection.data.seo);
+};
 
 const CollectionDetailsPage: FunctionComponent<
   CollectionDetailsPageProps
-> = async ({ params: { locale, id } }) => {
-  const collection = await FetchCollectionsDetailsPage.execute(id, locale);
+> = async ({ params }) => {
+  const { id, locale } = await params;
 
   return (
     <Suspense fallback={<Loading />}>
-      <CollectionDetails collection={collection.data} />
+      <CollectionDetailsBoundary id={id} locale={locale} />
     </Suspense>
   );
 };
 
-export const runtime = "edge";
+export const generateStaticParams = async ({
+  params,
+}: CollectionDetailsPageProps) => {
+  const { locale } = await params;
+  const { data } = await FetchCollections.execute({ page: 1 }, locale);
+
+  return data.map((collection) => ({
+    id: collection.documentId,
+    locale: locale,
+  }));
+};
 
 export default CollectionDetailsPage;
