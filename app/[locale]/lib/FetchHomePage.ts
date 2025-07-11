@@ -54,7 +54,7 @@ export class FetchHomePage {
             },
           },
           featured_collections: {
-            fields: ["name", "subtitle", "is_new"],
+            fields: ["name", "subtitle", "is_new", "slug"],
             populate: {
               hero_image: {
                 fields: ["url"],

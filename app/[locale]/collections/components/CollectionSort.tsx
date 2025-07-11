@@ -10,15 +10,6 @@ interface CollectionSortProps {
   locale: Locale;
 }
 
-// const sortOptions: { [key: string]: string } = {
-//   "Price: High to Low": "luxury_score:desc",
-//   "Price: Low to High": "luxury_score:asc",
-//   "Most Popular": "popularity:desc",
-//   "Least Popular": "popularity:asc",
-//   "Alphabetical: A-Z": "name:asc",
-//   "Alphabetical: Z-A": "name:desc",
-// };
-
 const sortOptions: { [key: string]: { [key: string]: string } } = {
   en: {
     "Price: High to Low": "luxury_score:desc",

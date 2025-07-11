@@ -1,15 +1,6 @@
 import qs from "qs";
 import { CollectionsParams } from "../types/params";
 
-const sort: { [key: string]: string } = {
-  most_popularity: "popularity:desc",
-  least_popularity: "popularity:asc",
-  most_luxurious: "luxury_score:desc",
-  least_luxurious: "luxury_score:asc",
-  alphabetical: "name:asc",
-  reverse_alphabetical: "name:desc",
-};
-
 export class GenerateQueryString {
   public static execute(params: CollectionsParams): string {
     const searchString = this.generateSearchQueryString(params.search);
@@ -24,7 +15,7 @@ export class GenerateQueryString {
     if (query.length > 0 && query[0] === "&") {
       return query.slice(1); // Remove leading '&' if present
     }
-    
+
     return query;
   }
 
@@ -127,14 +118,9 @@ export class GenerateQueryString {
       return "";
     }
 
-    const sortValue: string | undefined = sort[value];
-    if (!sortValue) {
-      return "";
-    }
-
     const query = qs.stringify(
       {
-        sort: [sortValue],
+        sort: [value],
       },
       { encodeValuesOnly: true }
     );

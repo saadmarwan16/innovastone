@@ -23,6 +23,7 @@ export const CollectionsDetailsPageSchema = z.object({
         name: z.string(),
         subtitle: z.string(),
         is_new: z.boolean(),
+        slug: z.string(),
         hero_image: z.object({
           id: z.number(),
           documentId: z.string(),

@@ -23,7 +23,6 @@ export class ConvertJsonToMetadata {
       description: json.metaDescription,
       keywords: this.toArrayKeywords(json.keywords),
       robots: this.parseRobots(json.metaRobots),
-      viewport: json.metaViewport,
       alternates: {
         canonical: json.canonicalURL,
       },

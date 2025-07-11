@@ -34,8 +34,8 @@ const Similar: FunctionComponent<SimilarProps> = ({ data }) => {
                 <Link
                   key={collection.id}
                   href={{
-                    pathname: "/collections/[id]",
-                    params: { id: collection.documentId },
+                    pathname: "/collections/[slug]",
+                    params: { slug: collection.slug },
                   }}
                   className="group"
                 >

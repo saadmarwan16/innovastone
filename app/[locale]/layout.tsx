@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 });
 
 interface LocaleLayoutProps extends PropsWithChildren {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }
 
 export const metadata: Metadata = {
@@ -41,11 +41,11 @@ export const generateStaticParams = () => {
   return routing.locales.map((locale) => ({ locale }));
 };
 
-const LocaleLayout: FunctionComponent<LocaleLayoutProps> = ({
+const LocaleLayout: FunctionComponent<LocaleLayoutProps> = async ({
   children,
   params,
 }) => {
-  const { locale } = params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

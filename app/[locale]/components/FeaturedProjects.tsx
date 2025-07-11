@@ -29,8 +29,8 @@ const FeaturedProjects: FunctionComponent<FeaturedProjectsProps> = ({
             <Link
               key={collection.id}
               href={{
-                pathname: "/collections/[id]",
-                params: { id: collection.documentId },
+                pathname: "/collections/[slug]",
+                params: { slug: collection.slug },
               }}
             >
               <Card className="overflow-hidden elegant-card-hover border-0 glass-effect">

@@ -40,6 +40,7 @@ const CollectionsClient: FunctionComponent<CollectionsClientProps> = ({
   const [initialFilters, setInitialFilters] = useState(memoizedParams);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
+  console.log("Rerendering:", params);
 
   const handleApplyFilters = () => {
     router.push(ConvertParamsObjectToString.execute(initialFilters), {

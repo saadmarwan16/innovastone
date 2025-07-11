@@ -9,7 +9,7 @@ import { ConvertJsonToMetadata } from "@/lib/ConvertJsonToMetadata";
 
 interface CollectionDetailsPageProps {
   params: Promise<{
-    id: string;
+    slug: string;
     locale: Locale;
   }>;
 }
@@ -17,8 +17,8 @@ interface CollectionDetailsPageProps {
 export const generateMetadata = async ({
   params,
 }: CollectionDetailsPageProps): Promise<Metadata> => {
-  const { id, locale } = await params;
-  const collection = await FetchCollectionsDetailsPage.execute(id, locale);
+  const { slug, locale } = await params;
+  const collection = await FetchCollectionsDetailsPage.execute(slug, locale);
 
   return ConvertJsonToMetadata.execute(collection.data.seo);
 };
@@ -26,11 +26,11 @@ export const generateMetadata = async ({
 const CollectionDetailsPage: FunctionComponent<
   CollectionDetailsPageProps
 > = async ({ params }) => {
-  const { id, locale } = await params;
+  const { slug, locale } = await params;
 
   return (
     <Suspense fallback={<Loading />}>
-      <CollectionDetailsBoundary id={id} locale={locale} />
+      <CollectionDetailsBoundary slug={slug} locale={locale} />
     </Suspense>
   );
 };
@@ -42,7 +42,7 @@ export const generateStaticParams = async ({
   const { data } = await FetchCollections.execute({ page: 1 }, locale);
 
   return data.map((collection) => ({
-    id: collection.documentId,
+    slug: collection.slug,
     locale: locale,
   }));
 };

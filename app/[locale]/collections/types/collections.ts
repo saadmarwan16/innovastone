@@ -8,6 +8,7 @@ export const CollectionsSchema = z.object({
       name: z.string(),
       description: z.string(),
       is_new: z.boolean(),
+      slug: z.string(),
       hero_image: z.object({
         id: z.number(),
         documentId: z.string(),

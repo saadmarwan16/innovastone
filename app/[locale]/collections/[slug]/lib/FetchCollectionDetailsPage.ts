@@ -9,7 +9,7 @@ export class FetchCollectionsDetailsPage {
   private static readonly ENDPOINT = `${env.NEXT_PUBLIC_BACKEND_URL}/api/collections`;
 
   public static async execute(
-    id: string,
+    slug: string,
     locale: Locale
   ): Promise<TCollectionsDetailsPage> {
     const t = await getTranslations();
@@ -17,7 +17,7 @@ export class FetchCollectionsDetailsPage {
     try {
       return await fetchWithZod(
         CollectionsDetailsPageSchema,
-        `${this.ENDPOINT}/${id}?${this.generateQueryString(locale)}`
+        `${this.ENDPOINT}/${slug}?${this.generateQueryString(locale)}`
       );
     } catch (error) {
       console.error("Failed to fetch collection details page data:", error); // Log the error to an error loggin service for debugging
@@ -39,7 +39,7 @@ export class FetchCollectionsDetailsPage {
             fields: ["url"],
           },
           similar: {
-            fields: ["name", "subtitle", "is_new"],
+            fields: ["name", "subtitle", "is_new", "slug"],
             populate: {
               hero_image: {
                 fields: ["url"],

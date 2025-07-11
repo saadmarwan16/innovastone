@@ -28,10 +28,7 @@ const Footer: FunctionComponent<FooterProps> = () => {
     { name: tNavigation("about"), href: "/about" },
     { name: tNavigation("contact"), href: "/contact" },
   ];
-  const res = getPathname({
-    href: '/',
-    locale: 'en',
-  });
+  
   return (
     <footer className="bg-stone-charcoal text-stone-marble">
       <div className="container py-16">

@@ -4,14 +4,14 @@ import { FetchCollectionsDetailsPage } from "./lib/FetchCollectionDetailsPage";
 import { Locale } from "next-intl";
 
 interface CollectionDetailsBoundaryProps {
-  id: string;
+  slug: string;
   locale: Locale;
 }
 
 const CollectionDetailsBoundary: FunctionComponent<
   CollectionDetailsBoundaryProps
-> = async ({ id, locale }) => {
-  const collection = await FetchCollectionsDetailsPage.execute(id, locale);
+> = async ({ slug, locale }) => {
+  const collection = await FetchCollectionsDetailsPage.execute(slug, locale);
 
   return <CollectionDetails collection={collection.data} />;
 };

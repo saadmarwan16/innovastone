@@ -18,10 +18,10 @@ export const routing = defineRouting({
       fr: "/collections",
       tr: "/koleksiyonlar",
     },
-    "/collections/[id]": {
-      en: "/collections/[id]",
-      fr: "/collections/[id]",
-      tr: "/koleksiyonlar/[id]",
+    "/collections/[slug]": {
+      en: "/collections/[slug]",
+      fr: "/collections/[slug]",
+      tr: "/koleksiyonlar/[slug]",
     },
     "/about": {
       en: "/about",

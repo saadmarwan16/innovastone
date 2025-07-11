@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useMemo } from "react";
+import { Fragment, FunctionComponent, useCallback, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight, Loader2, AlertCircle, RefreshCw } from "lucide-react";
@@ -120,14 +120,14 @@ const CollectionGrid: FunctionComponent<CollectionGridProps> = ({
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {collections?.map((page) => (
-              <>
+            {collections?.map((page, idx) => (
+              <Fragment key={idx}>
                 {page.map((collection) => (
                   <Link
                     key={collection.id}
                     href={{
-                      pathname: "/collections/[id]",
-                      params: { id: collection.documentId },
+                      pathname: "/collections/[slug]",
+                      params: { slug: collection.slug },
                     }}
                     className="group"
                   >
@@ -163,7 +163,7 @@ const CollectionGrid: FunctionComponent<CollectionGridProps> = ({
                     </div>
                   </Link>
                 ))}
-              </>
+              </Fragment>
             ))}
           </div>
 

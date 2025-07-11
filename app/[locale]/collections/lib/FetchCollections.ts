@@ -14,10 +14,12 @@ export class FetchCollections {
     locale: Locale
   ): Promise<TCollections> {
     try {
+      console.log("Fetching collections list data with params:", params);
       const query = `${this.generateQueryString(
         locale,
         params.page
       )}&${GenerateQueryString.execute(params)}`;
+      console.log("Generated query string:", query);
 
       return await fetchWithZod(CollectionsSchema, `${this.ENDPOINT}?${query}`);
     } catch (error) {
@@ -29,7 +31,7 @@ export class FetchCollections {
   private static generateQueryString(locale: Locale, page?: number): string {
     return qs.stringify(
       {
-        fields: ["name", "description", "is_new"],
+        fields: ["name", "description", "is_new", "slug"],
         populate: {
           hero_image: {
             fields: ["url"],
