@@ -30,13 +30,13 @@ const ContactInfo: FunctionComponent<ContactInfoProps> = ({ data }) => {
             {info.title}
           </h3>
           <p className="text-stone-charcoal/70 mb-4">{info.content}</p>
-          <Link
+          <a
             href={info.link}
             className="text-stone-gold hover:text-stone-gold/80 font-medium transition-colors duration-300"
             target={info.link.startsWith("http") ? "_blank" : undefined}
           >
             {info.link_text}
-          </Link>
+          </a>
         </div>
       ))}
     </div>

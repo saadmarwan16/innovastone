@@ -44,21 +44,21 @@ const Footer: FunctionComponent<FooterProps> = () => {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/Innovastone-Design/61575973285955"
                 target="_blank"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-stone-gold/20 transition-colors duration-300"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/innovastonedesign"
                 target="_blank"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-stone-gold/20 transition-colors duration-300"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/innovastone-design"
                 target="_blank"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-stone-gold/20 transition-colors duration-300"
               >
