@@ -20,9 +20,10 @@ import { CollectionsParams } from "./types/params";
 import SearchBar from "./components/SearchBar";
 import DesktopCollectionsFilterSortContainer from "./components/DesktopCollectionsFilterSortContainer";
 import MobileCollectionsFilterSortContainer from "./components/MobileCollectionsFilterSortContainer";
-import { useRouter } from "next/navigation";
-import { ConvertParamsObjectToString } from "./lib/ConvertParamsObjectToString";
 import { Locale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { QueryParams } from "next-intl/navigation";
+import { GenerateNewQuery } from "./lib/GenerateNewQuery";
 
 interface CollectionsClientProps {
   data: TCollectionsPageData;
@@ -36,21 +37,40 @@ const CollectionsClient: FunctionComponent<CollectionsClientProps> = ({
   locale,
 }) => {
   const t = useTranslations("CollectionsPage.filters");
-  const memoizedParams = useMemo(() => params, [params]);
-  const [initialFilters, setInitialFilters] = useState(memoizedParams);
+  const [tempFilters, setTempFilters] = useState<CollectionsParams>(params);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
-  console.log("Rerendering:", params);
+
+  // Reset temp filters when params change (e.g., from URL navigation)
+  useMemo(() => {
+    setTempFilters(params);
+  }, [params]);
 
   const handleApplyFilters = () => {
-    router.push(ConvertParamsObjectToString.execute(initialFilters), {
-      scroll: false,
-    });
+    router.push(
+      {
+        pathname: "/collections",
+        query: GenerateNewQuery.execute(tempFilters),
+      },
+      {
+        scroll: false,
+      }
+    );
     setIsDialogOpen(false);
   };
 
   const handleDialogOpen = (open: boolean) => {
+    if (open) {
+      // Reset temp filters to current params when opening dialog
+      setTempFilters(params);
+    }
     setIsDialogOpen(open);
+  };
+
+  const handleCancelFilters = () => {
+    // Reset temp filters to current params when cancelling
+    setTempFilters(params);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -84,17 +104,19 @@ const CollectionsClient: FunctionComponent<CollectionsClientProps> = ({
                   <DialogTitle>{t("filterCollections")}</DialogTitle>
                 </DialogHeader>
                 <MobileCollectionsFilterSortContainer
-                  params={params}
+                  params={tempFilters}
                   data={data}
-                  setInitialFilters={(filters) => setInitialFilters(filters)}
+                  setTempFilters={(filters) => setTempFilters(filters)}
                   locale={locale}
                 />
                 <DialogFooter className="flex gap-2 sm:gap-0">
-                  <DialogClose asChild>
-                    <Button variant="outline" className="flex-1 sm:flex-none">
-                      {t("cancel")}
-                    </Button>
-                  </DialogClose>
+                  <Button
+                    variant="outline"
+                    className="flex-1 sm:flex-none"
+                    onClick={handleCancelFilters}
+                  >
+                    {t("cancel")}
+                  </Button>
                   <Button
                     className="flex-1 sm:flex-none bg-stone-gold hover:bg-stone-gold/90"
                     onClick={handleApplyFilters}

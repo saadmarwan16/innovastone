@@ -3,9 +3,9 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "../hooks/useDebounce";
 import { CollectionsParams } from "../types/params";
-import { GenerateUrlQueryString } from "../lib/GenerateUrlQueryString";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
+import { GenerateNewQuery } from "../lib/GenerateNewQuery";
 
 interface SearchBarProps {
   searchParams: CollectionsParams;
@@ -20,21 +20,16 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({ searchParams }) => {
     router.push(
       {
         pathname: "/collections",
-        query: {
-          ...searchParams,
-          search: debouncedValue ? debouncedValue : undefined,
-        },
+        query: GenerateNewQuery.search(
+          searchParams,
+          debouncedValue ? debouncedValue : undefined
+        ),
       },
       {
         scroll: false,
       }
     );
   }, [debouncedValue]);
-  // useEffect(() => {
-  //   router.push(GenerateUrlQueryString.search(searchParams, debouncedValue), {
-  //     scroll: false,
-  //   });
-  // }, [debouncedValue]);
 
   return (
     <div className="mb-8">

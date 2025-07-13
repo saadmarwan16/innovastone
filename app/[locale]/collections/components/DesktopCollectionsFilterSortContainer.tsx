@@ -3,10 +3,10 @@ import { Filter, SlidersHorizontal } from "lucide-react";
 import CollectionFilter from "./CollectionFilter";
 import CollectionSort from "./CollectionSort";
 import { TCollectionsPageData } from "../lib/types";
-import { GenerateUrlQueryString } from "../lib/GenerateUrlQueryString";
 import { CollectionsParams } from "../types/params";
-import { useRouter } from "next/navigation";
 import { Locale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { GenerateNewQuery } from "../lib/GenerateNewQuery";
 
 interface DesktopCollectionsFilterSortContainerProps {
   data: TCollectionsPageData;
@@ -30,9 +30,18 @@ const DesktopCollectionsFilterSortContainer: FunctionComponent<
             options={data.categories.map((category) => category.value)}
             selected={params.category ?? []}
             onChange={(selected) =>
-              router.push(GenerateUrlQueryString.category(params, selected), {
-                scroll: false,
-              })
+              router.push(
+                {
+                  pathname: "/collections",
+                  query: GenerateNewQuery.category(
+                    params,
+                    selected ? selected : undefined
+                  ),
+                },
+                {
+                  scroll: false,
+                }
+              )
             }
           />
         </div>
@@ -43,9 +52,18 @@ const DesktopCollectionsFilterSortContainer: FunctionComponent<
             options={data.colors.map((color) => color.value)}
             selected={params.colors ?? []}
             onChange={(selected) =>
-              router.push(GenerateUrlQueryString.colors(params, selected), {
-                scroll: false,
-              })
+              router.push(
+                {
+                  pathname: "/collections",
+                  query: GenerateNewQuery.colors(
+                    params,
+                    selected ? selected : undefined
+                  ),
+                },
+                {
+                  scroll: false,
+                }
+              )
             }
           />
         </div>
@@ -56,9 +74,18 @@ const DesktopCollectionsFilterSortContainer: FunctionComponent<
             options={data.uses.map((use) => use.value)}
             selected={params.uses ?? []}
             onChange={(selected) =>
-              router.push(GenerateUrlQueryString.uses(params, selected), {
-                scroll: false,
-              })
+              router.push(
+                {
+                  pathname: "/collections",
+                  query: GenerateNewQuery.uses(
+                    params,
+                    selected ? selected : undefined
+                  ),
+                },
+                {
+                  scroll: false,
+                }
+              )
             }
           />
         </div>
@@ -69,9 +96,18 @@ const DesktopCollectionsFilterSortContainer: FunctionComponent<
             options={data.sorts.map((sort) => sort.value)}
             selected={params.sort}
             onChange={(selected) =>
-              router.push(GenerateUrlQueryString.sort(params, selected), {
-                scroll: false,
-              })
+              router.push(
+                {
+                  pathname: "/collections",
+                  query: GenerateNewQuery.sort(
+                    params,
+                    selected ? selected : undefined
+                  ),
+                },
+                {
+                  scroll: false,
+                }
+              )
             }
             locale={locale}
           />

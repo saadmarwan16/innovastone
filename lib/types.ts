@@ -13,7 +13,7 @@ export const SeoMetadataSchema = z.object({
     id: z.number(),
     documentId: z.string(),
     url: z.string(),
-    alternativeText: z.string(),
+    alternativeText: z.string().optional(),
   }),
   openGraph: z.object({
     id: z.number(),
@@ -25,9 +25,25 @@ export const SeoMetadataSchema = z.object({
       id: z.number(),
       documentId: z.string(),
       url: z.string(),
-      alternativeText: z.string(),
+      alternativeText: z.string().optional(),
+    }),
+  }),
+});
+
+export const SitemapSchema = z.object({
+  data: z.array(
+    z.object({ id: z.number(), documentId: z.string(), slug: z.string() })
+  ),
+  meta: z.object({
+    pagination: z.object({
+      page: z.number(),
+      pageSize: z.number(),
+      pageCount: z.number(),
+      total: z.number(),
     }),
   }),
 });
 
 export type TSeoMetadata = z.infer<typeof SeoMetadataSchema>;
+export type TSitemap = z.infer<typeof SitemapSchema>;
+export type TSitemapData = TSitemap["data"];

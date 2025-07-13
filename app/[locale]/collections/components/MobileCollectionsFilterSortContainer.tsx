@@ -1,4 +1,4 @@
-import { useState, useEffect, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { Filter, SlidersHorizontal } from "lucide-react";
 import { TCollectionsPageData } from "../lib/types";
 import { CollectionsParams } from "../types/params";
@@ -9,13 +9,13 @@ import { Locale, useTranslations } from "next-intl";
 interface MobileCollectionsFilterSortContainerProps {
   data: TCollectionsPageData;
   params: CollectionsParams;
-  setInitialFilters: (filters: CollectionsParams) => void;
+  setTempFilters: (filters: CollectionsParams) => void;
   locale: Locale;
 }
 
 const MobileCollectionsFilterSortContainer: FunctionComponent<
   MobileCollectionsFilterSortContainerProps
-> = ({ data, params, setInitialFilters, locale }) => {
+> = ({ data, params, setTempFilters, locale }) => {
   const t = useTranslations("CollectionsPage.filters");
 
   return (
@@ -26,9 +26,11 @@ const MobileCollectionsFilterSortContainer: FunctionComponent<
         options={data.categories.map((category) => category.value)}
         selected={params.category ?? []}
         onChange={(filter) => {
-          setInitialFilters({
+          setTempFilters({
             ...params,
-            category: filter,
+            category: Array.isArray(filter)
+              ? filter.map((cat) => cat.toLowerCase())
+              : [filter.toLowerCase()],
           });
         }}
       />
@@ -38,9 +40,11 @@ const MobileCollectionsFilterSortContainer: FunctionComponent<
         options={data.colors.map((color) => color.value)}
         selected={params.colors ?? []}
         onChange={(filter) => {
-          setInitialFilters({
+          setTempFilters({
             ...params,
-            colors: filter,
+            colors: Array.isArray(filter)
+              ? filter.map((color) => color.toLowerCase())
+              : [filter.toLowerCase()],
           });
         }}
       />
@@ -50,9 +54,11 @@ const MobileCollectionsFilterSortContainer: FunctionComponent<
         options={data.uses.map((use) => use.value)}
         selected={params.uses ?? []}
         onChange={(filter) => {
-          setInitialFilters({
+          setTempFilters({
             ...params,
-            uses: filter,
+            uses: Array.isArray(filter)
+              ? filter.map((use) => use.toLowerCase())
+              : [filter.toLowerCase()],
           });
         }}
       />
@@ -62,7 +68,7 @@ const MobileCollectionsFilterSortContainer: FunctionComponent<
         options={data.sorts.map((sort) => sort.value)}
         selected={params.sort}
         onChange={(filter) => {
-          setInitialFilters({
+          setTempFilters({
             ...params,
             sort: filter,
           });

@@ -14,12 +14,10 @@ export class FetchCollections {
     locale: Locale
   ): Promise<TCollections> {
     try {
-      console.log("Fetching collections list data with params:", params);
       const query = `${this.generateQueryString(
         locale,
         params.page
       )}&${GenerateQueryString.execute(params)}`;
-      console.log("Generated query string:", query);
 
       return await fetchWithZod(CollectionsSchema, `${this.ENDPOINT}?${query}`);
     } catch (error) {

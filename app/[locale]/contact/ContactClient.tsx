@@ -116,7 +116,10 @@ const ContactClient: FunctionComponent<ContactClientProps> = ({ data }) => {
                       <FormItem>
                         <FormLabel>{t("fullName.label")}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t("fullName.placeholder")} {...field} />
+                          <Input
+                            placeholder={t("fullName.placeholder")}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -129,7 +132,10 @@ const ContactClient: FunctionComponent<ContactClientProps> = ({ data }) => {
                       <FormItem>
                         <FormLabel>{t("email.label")}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t("email.placeholder")} {...field} />
+                          <Input
+                            placeholder={t("email.placeholder")}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -142,7 +148,10 @@ const ContactClient: FunctionComponent<ContactClientProps> = ({ data }) => {
                       <FormItem>
                         <FormLabel>{t("phone.label")}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t("phone.placeholder")} {...field} />
+                          <Input
+                            placeholder={t("phone.placeholder")}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -187,7 +196,8 @@ const ContactClient: FunctionComponent<ContactClientProps> = ({ data }) => {
             <div className="space-y-8">
               <div className="glass-effect rounded-2xl overflow-hidden h-[400px]">
                 <iframe
-                  src={data.iframe_link}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.9566108044137!2d29.089987699999995!3d37.7910566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73fc9183db849%3A0x6bdc6fa55fdc72b0!2zU0tZQ0lUWSBCIEJMT0sgxLDFniBNRVJLRVrEsCBERU7EsFpMxLA!5e0!3m2!1sen!2str!4v1744492542576!5m2!1sen!2str"
+                  // src={data.iframe_link}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

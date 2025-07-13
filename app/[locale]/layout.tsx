@@ -30,15 +30,11 @@ interface LocaleLayoutProps extends PropsWithChildren {
 }
 
 export const metadata: Metadata = {
-  title: "InnovaStone Design | Luxury Natural Stone Solutions",
+  title: "Luxury Natural Stone Solutions | InnovaStone Design",
   description:
     "Premium natural stone solutions for luxury spaces. Discover our curated collection of marble, travertine, and exclusive design materials.",
   keywords:
     "natural stone, marble, travertine, luxury design, interior design, exterior design, Denizli, Turkey",
-};
-
-export const generateStaticParams = () => {
-  return routing.locales.map((locale) => ({ locale }));
 };
 
 const LocaleLayout: FunctionComponent<LocaleLayoutProps> = async ({
@@ -76,6 +72,10 @@ const LocaleLayout: FunctionComponent<LocaleLayoutProps> = async ({
       </body>
     </html>
   );
+};
+
+export const generateStaticParams = () => {
+  return routing.locales.map((locale) => ({ locale }));
 };
 
 export default LocaleLayout;

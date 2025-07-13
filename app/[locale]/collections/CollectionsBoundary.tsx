@@ -1,3 +1,4 @@
+import { JsonLd } from "@/lib/seo";
 import CollectionsClient from "./CollectionsClient";
 import { FetchCollectionsPage } from "./lib/FetchCollectionsPage";
 import { CollectionsParams } from "./types/params";
@@ -15,11 +16,14 @@ const CollectionsBoundary: FunctionComponent<
   const collections = await FetchCollectionsPage.execute(locale);
 
   return (
-    <CollectionsClient
-      data={collections.data}
-      params={searchParams}
-      locale={locale}
-    />
+    <>
+      <CollectionsClient
+        data={collections.data}
+        params={searchParams}
+        locale={locale}
+      />
+      <JsonLd data={collections.data.seo.structuredData} />
+    </>
   );
 };
 
