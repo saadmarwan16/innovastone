@@ -34,4 +34,6 @@ const CollectionsPage: FunctionComponent<CollectionsPageProps> = async ({
   );
 };
 
+export const revalidate = 60;
+
 export default CollectionsPage;

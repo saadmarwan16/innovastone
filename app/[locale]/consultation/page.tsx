@@ -31,4 +31,6 @@ const ConsultationPage: FunctionComponent<ConsultationPageProps> = async ({
   );
 };
 
+export const revalidate = 60;
+
 export default ConsultationPage;

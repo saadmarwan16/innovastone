@@ -31,4 +31,6 @@ const HomePage: FunctionComponent<HomePageProps> = async ({ params }) => {
   );
 };
 
+export const revalidate = 60;
+
 export default HomePage;

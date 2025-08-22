@@ -29,4 +29,6 @@ const ContactPage: FunctionComponent<ContactPageProps> = async ({ params }) => {
   );
 };
 
+export const revalidate = 60;
+
 export default ContactPage;
